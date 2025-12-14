@@ -7,18 +7,29 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-username.github.io', // TODO: Update with actual URL
+  url: 'https://Physical-AI-And-Humanoid-Robotics.github.io', // GitHub Pages URL
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/physical-ai-humanoid-robotics-book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Physical-AI-And-Humanoid-Robotics', // Usually your GitHub org/user name.
   projectName: 'physical-ai-humanoid-robotics-book', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
+  trailingSlash: false, // Set to false to remove trailing slashes from URLs
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    mermaid: true,
+    // Migrate the deprecated option to the new location
+    mdx1Compat: {
+      'comments': false,
+      'admonitions': false,
+      'headingIds': false,
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -115,8 +126,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics. Built with Docusaurus.`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
+        theme: require('prism-react-renderer').themes.github || require('prism-react-renderer').themes.oneLight,
+        darkTheme: require('prism-react-renderer').themes.dracula || require('prism-react-renderer').themes.oneDark,
       },
       colorMode: {
         defaultMode: 'light',

@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/* You can override the default Docusaurus variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+}
+
+/* Custom styles for robotics education content */
+.robotics-diagram {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.vla-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.vla-pipeline > div {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}
+
+@media (max-width: 768px) {
+  .vla-pipeline {
+    flex-direction: column;
+  }
+}
+
+/* Custom admonition styles */
+.admonition-robotics-tip {
+  border-left-color: #42b549;
+}
+
+.admonition-robotics-warning {
+  border-left-color: #f1c40f;
+}
+
+.admonition-robotics-caution {
+  border-left-color: #e74c3c;
+}

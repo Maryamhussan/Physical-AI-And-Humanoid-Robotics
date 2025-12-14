@@ -116,7 +116,7 @@ class PrivacyCompliantSpeechHandler:
 
 According to our requirements, Whisper integration should achieve:
 
-- **Target**: <2 seconds for speech-to-text conversion
+- **Target**: &lt;2 seconds for speech-to-text conversion
 - **Implementation**: Use streaming processing where possible
 
 ```python
@@ -267,7 +267,7 @@ class TestWhisperIntegration(unittest.TestCase):
 Integrating Whisper into your VLA system enables natural language interaction with your robot. Remember to:
 
 1. Implement privacy-compliant handling of speech data
-2. Optimize for the target latency of <2 seconds
+2. Optimize for the target latency of &lt;2 seconds
 3. Handle errors gracefully with fallback mechanisms
 4. Monitor costs when using API-based processing
 5. Ensure good audio quality for accurate transcription

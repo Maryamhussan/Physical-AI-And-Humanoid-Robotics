@@ -12,6 +12,10 @@ The Vision-Language-Action (VLA) pipeline represents the complete loop from natu
 
 ## Architecture Overview
 
+The following diagram illustrates the complete Vision-Language-Action (VLA) system architecture integrated with Isaac Sim:
+
+![VLA System Architecture](/img/vla-system-overview.svg)
+
 ### VLA Pipeline Components
 
 The complete VLA pipeline consists of several interconnected components:

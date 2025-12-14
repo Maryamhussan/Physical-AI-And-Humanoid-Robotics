@@ -30,6 +30,10 @@ Traditional robotics systems often treat perception as a unimodal problem (e.g.,
 
 ## Architecture for Multimodal Perception
 
+The following diagram illustrates the complete multimodal perception system architecture, showing how vision, language, and action modalities are integrated:
+
+![Multimodal Perception System](/img/multimodal-perception.svg)
+
 ### Fusion Strategies
 
 There are several approaches to fusing information from multiple modalities:
@@ -677,7 +681,7 @@ class ActivePerceptionModule:
 
 ### Efficient Multimodal Processing
 
-To meet the performance requirements (<2 seconds for vision processing), consider these optimizations:
+To meet the performance requirements (&lt;2 seconds for vision processing), consider these optimizations:
 
 ```python
 import time
@@ -975,7 +979,7 @@ Multimodal perception is the cornerstone of VLA systems, enabling robots to unde
 2. **Language Grounding**: Enable objects to be detected based on natural language descriptions
 3. **Spatial Reasoning**: Understand relationships between objects and spatial queries
 4. **Active Perception**: Allow robots to explore their environment when needed
-5. **Performance**: Optimize for the required <2 second processing time
+5. **Performance**: Optimize for the required &lt;2 second processing time
 6. **Privacy**: Implement privacy-compliant handling of visual and linguistic data
 
 The integration of these components creates a powerful perception system that can understand and respond to complex, natural language commands in real-world environments.

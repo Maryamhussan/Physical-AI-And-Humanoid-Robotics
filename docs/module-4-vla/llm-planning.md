@@ -163,7 +163,7 @@ Expected output might be:
 
 ### Latency Considerations
 
-To meet our <5 second response target for LLM processing:
+To meet our &lt;5 second response target for LLM processing:
 
 ```python
 import time
@@ -511,7 +511,7 @@ if __name__ == '__main__':
 LLM integration in VLA systems enables sophisticated natural language understanding and action planning. Key considerations include:
 
 1. **Model Selection**: Choose appropriate models for educational use (GPT-3.5, open-source alternatives)
-2. **Performance**: Optimize for the target <5 second response time
+2. **Performance**: Optimize for the target &lt;5 second response time
 3. **Reliability**: Implement robust error handling and fallback strategies
 4. **Cost Management**: Monitor and control API usage for educational budgets
 5. **Privacy**: Ensure compliance with data handling requirements

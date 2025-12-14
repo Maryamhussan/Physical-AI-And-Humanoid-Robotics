@@ -16,10 +16,10 @@ Performance monitoring is critical for Vision-Language-Action (VLA) systems to e
 
 VLA systems have strict latency requirements to maintain natural interaction:
 
-- **Speech-to-Text**: <2 seconds for Whisper processing
-- **LLM Response**: <5 seconds for language understanding and planning
-- **Action Execution**: <10 seconds for simple actions, <30 seconds for complex tasks
-- **End-to-End**: <15 seconds for complete VLA pipeline from speech input to action completion
+- **Speech-to-Text**: &lt;2 seconds for Whisper processing
+- **LLM Response**: &lt;5 seconds for language understanding and planning
+- **Action Execution**: &lt;10 seconds for simple actions, &lt;30 seconds for complex tasks
+- **End-to-End**: &lt;15 seconds for complete VLA pipeline from speech input to action completion
 
 ### Throughput Requirements
 
