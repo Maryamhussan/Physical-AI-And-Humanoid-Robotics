@@ -7,15 +7,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://Physical-AI-And-Humanoid-Robotics.github.io', // GitHub Pages URL
+  url: 'https://Maryamhussan.github.io', // GitHub Pages URL
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/physical-ai-humanoid-robotics-book/',
+  baseUrl: '/Physical-AI-And-Humanoid-Robotics/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Physical-AI-And-Humanoid-Robotics', // Usually your GitHub org/user name.
-  projectName: 'physical-ai-humanoid-robotics-book', // Usually your repo name.
+  organizationName: 'Maryamhussan', // Usually your GitHub org/user name.
+  projectName: 'Physical-AI-And-Humanoid-Robotics', // Usually your repo name.
   deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
   trailingSlash: false, // Set to false to remove trailing slashes from URLs
 
@@ -49,7 +49,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Physical-AI-And-Humanoid-Robotics/physical-ai-humanoid-robotics-book/tree/001-vla-systems/',
+            'https://github.com/Maryamhussan/Physical-AI-And-Humanoid-Robotics/tree/001-vla-systems/',
         },
         blog: false, // Disable blog if not needed
         theme: {
@@ -78,7 +78,7 @@ const config = {
             label: 'Course Content',
           },
           {
-            href: 'https://github.com/Physical-AI-And-Humanoid-Robotics/physical-ai-humanoid-robotics-book',
+            href: 'https://github.com/Maryamhussan/Physical-AI-And-Humanoid-Robotics',
             label: 'GitHub',
             position: 'right',
           },
@@ -118,7 +118,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/Physical-AI-And-Humanoid-Robotics/physical-ai-humanoid-robotics-book',
+                href: 'https://github.com/Maryamhussan/Physical-AI-And-Humanoid-Robotics',
               },
             ],
           },
