@@ -11,7 +11,7 @@ Welcome to the comprehensive educational book on Physical AI and Humanoid Roboti
 
 The following diagram illustrates the complete Vision-Language-Action (VLA) system that integrates all modules:
 
-![VLA System Overview](/img/vla-system-overview.svg)
+
 
 This educational book is structured into 4 core modules:
 
