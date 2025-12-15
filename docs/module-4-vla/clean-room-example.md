@@ -1,5 +1,5 @@
 ---
-title: "Clean the Room" Implementation Example
+title: Clean the Room Implementation Example
 sidebar_position: 5
 ---
 

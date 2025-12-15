@@ -12,6 +12,7 @@ In this comprehensive mini-project, you'll build a complete autonomous robot nav
 ### Learning Objectives
 
 By completing this project, you will:
+
 - Integrate multiple ROS 2 concepts into a cohesive system
 - Create a complete robot application with navigation capabilities
 - Implement sensor processing and control algorithms
@@ -23,6 +24,7 @@ By completing this project, you will:
 ### System Overview
 
 The navigation system consists of:
+
 - **Robot Model**: URDF representation of the robot
 - **Sensor Processing**: Laser scan processing for obstacle detection
 - **Navigation Stack**: Path planning and execution
@@ -1141,8 +1143,8 @@ def generate_launch_description():
     # Sensor processing parameters
     sensor_processor:
       safe_distance: 0.5
-      scan_angle_min: -1.57  # -90 degrees
-      scan_angle_max: 1.57   # 90 degrees
+      scan_angle_min: -1.57 # -90 degrees
+      scan_angle_max: 1.57 # 90 degrees
       obstacle_threshold: 0.8
 
     # Safety parameters
@@ -1465,6 +1467,7 @@ setup(
 ### Running the System
 
 1. **Build the package**:
+
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select navigation_robot_pkg
@@ -1472,17 +1475,20 @@ source install/setup.bash
 ```
 
 2. **Run the complete system**:
+
 ```bash
 ros2 launch navigation_robot_pkg navigation_robot.launch.py
 ```
 
 3. **Send navigation goals** (in another terminal):
+
 ```bash
 # Send a navigation goal
 ros2 action send_goal /navigate_to_pose example_interfaces/action/NavigateToPose "{pose: {position: {x: 1.0, y: 1.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}"
 ```
 
 4. **Monitor the system**:
+
 ```bash
 # Check topics
 ros2 topic list
@@ -1499,7 +1505,7 @@ ros2 topic echo /cmd_vel
 ### Advanced Features to Implement
 
 1. **Map Building**: Integrate SLAM for map creation
-2. **Path Planning**: Use A* or Dijkstra for optimal path planning
+2. **Path Planning**: Use A\* or Dijkstra for optimal path planning
 3. **Localization**: Implement AMCL for robot localization
 4. **Obstacle Avoidance**: Advanced local planners like DWA or TEB
 5. **Multi-Robot Coordination**: Extend to multiple robots
@@ -1507,6 +1513,7 @@ ros2 topic echo /cmd_vel
 ## Summary
 
 This mini-project demonstrates the integration of all major ROS 2 concepts:
+
 - **Nodes and Topics**: Communication between system components
 - **Services and Actions**: Synchronous and asynchronous operations
 - **Parameters**: Configuration management
