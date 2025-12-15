@@ -112,7 +112,7 @@ npm start
 ## Deployment
 
 ### GitHub Pages
-The site is automatically deployed via GitHub Actions when changes are pushed to the main branch.
+The site is automatically deployed via GitHub Actions when changes are pushed to the main or 001-vla-systems branch.
 
 ### Manual Deployment
 ```bash

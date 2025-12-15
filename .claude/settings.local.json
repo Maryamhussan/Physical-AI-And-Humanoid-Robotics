@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm docs/module-4-vla/capstone-integration.md)"
+    ]
+  }
+}

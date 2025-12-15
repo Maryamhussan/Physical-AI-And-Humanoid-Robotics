@@ -49,7 +49,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Physical-AI-And-Humanoid-Robotics/physical-ai-humanoid-robotics-book/tree/main/',
+            'https://github.com/Physical-AI-And-Humanoid-Robotics/physical-ai-humanoid-robotics-book/tree/001-vla-systems/',
         },
         blog: false, // Disable blog if not needed
         theme: {

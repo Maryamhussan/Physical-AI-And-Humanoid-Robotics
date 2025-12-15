@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main  # or your default branch
+      - 001-vla-systems
   pull_request:
     branches:
       - main
+      - 001-vla-systems
 
 jobs:
   deploy:

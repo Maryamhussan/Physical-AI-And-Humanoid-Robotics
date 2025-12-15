@@ -41,7 +41,7 @@ This website is configured to deploy to GitHub Pages automatically via GitHub Ac
 
 ### GitHub Pages Deployment
 
-The website is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment is handled by the GitHub Actions workflow in `.github/workflows/deploy.yml`.
+The website is automatically deployed to GitHub Pages when changes are pushed to the `main` or `001-vla-systems` branches. The deployment is handled by the GitHub Actions workflow in `.github/workflows/deploy.yml`.
 
 The site will be available at: https://Physical-AI-And-Humanoid-Robotics.github.io/physical-ai-humanoid-robotics-book/
 
