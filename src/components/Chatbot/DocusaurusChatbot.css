@@ -1,0 +1,73 @@
+/* Styles for Docusaurus-specific Chatbot integration */
+
+.docusaurus-chatbot-container {
+  position: relative;
+  width: 100%;
+}
+
+.docusaurus-chatbot-content {
+  width: 100%;
+}
+
+/* Ensure proper spacing within Docusaurus layout */
+.theme-doc-markdown > .docusaurus-chatbot-container,
+.markdown > .docusaurus-chatbot-container {
+  margin: 1.5rem 0;
+}
+
+/* Adjust for sidebar layout if needed */
+.docusaurus-chatbot-container .chatbot-container {
+  margin: 0;
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: var(--ifm-global-radius, 0.4rem);
+  box-shadow: var(--ifm-shadow-md, 0 1px 2px 0 rgba(0, 0, 0, 0.1));
+}
+
+/* Responsive adjustments for different Docusaurus layouts */
+@media (min-width: 997px) {
+  /* On larger screens, ensure it works well in the main content area */
+  .docusaurus-chatbot-container {
+    max-width: 100%;
+  }
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 996px) {
+  .docusaurus-chatbot-container .chatbot-container {
+    margin: 1rem 0;
+  }
+}
+
+/* Ensure accessibility - focus management */
+.docusaurus-chatbot-container :focus {
+  outline: 2px solid var(--ifm-color-primary, #3578e5);
+  outline-offset: 2px;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .docusaurus-chatbot-container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .docusaurus-chatbot-container .chatbot-container {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode support - inherits from Docusaurus theme */
+html[data-theme='dark'] .docusaurus-chatbot-container {
+  /* Colors will be handled by CSS variables already defined */
+}
+
+/* Print styles */
+@media print {
+  .docusaurus-chatbot-container {
+    display: none;
+  }
+}

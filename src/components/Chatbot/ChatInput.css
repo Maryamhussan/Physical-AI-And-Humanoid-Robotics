@@ -1,0 +1,102 @@
+/* Styles for ChatInput component */
+
+.chat-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.chat-input-textarea {
+  flex: 1;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: 8px;
+  resize: none;
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  overflow-y: auto;
+}
+
+.chat-input-textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary, #3578e5);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest, #d3e0fa);
+}
+
+.chat-input-textarea::placeholder {
+  color: var(--ifm-color-emphasis-600, #808080);
+}
+
+.chat-input-focused .chat-input-textarea {
+  border-color: var(--ifm-color-primary, #3578e5);
+}
+
+.chat-input-disabled .chat-input-textarea {
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  color: var(--ifm-color-emphasis-600, #808080);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.chat-input-send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: 6px;
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  color: var(--ifm-color-emphasis-600, #353738);
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+  flex-shrink: 0;
+}
+
+.chat-input-send-button:hover:not(:disabled) {
+  background-color: var(--ifm-color-emphasis-200, #ebedf0);
+  border-color: var(--ifm-color-emphasis-400, #c9ccd1);
+}
+
+.chat-input-send-button:active:not(:disabled) {
+  background-color: var(--ifm-color-emphasis-300, #dfe1e5);
+}
+
+.chat-input-send-button-disabled {
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  color: var(--ifm-color-emphasis-400, #c9ccd1);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.chat-input-send-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-input-textarea {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .chat-input-send-button {
+    width: 32px;
+    height: 32px;
+  }
+}

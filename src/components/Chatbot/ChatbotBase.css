@@ -1,0 +1,193 @@
+/* Base styles for Chatbot component with Docusaurus theme compatibility */
+
+.chatbot-container {
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  overflow: hidden;
+  font-family: var(--ifm-font-family-base);
+  color: var(--ifm-font-color-base);
+}
+
+.chatbot-header {
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chatbot-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color, var(--ifm-font-color-base));
+}
+
+.chatbot-toggle-button {
+  background: none;
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--ifm-color-emphasis-600, #353738);
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.chatbot-toggle-button:hover {
+  background-color: var(--ifm-color-emphasis-200, #ebedf0);
+  border-color: var(--ifm-color-emphasis-400, #c9ccd1);
+}
+
+.chatbot-content {
+  padding: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.chatbot-loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: var(--ifm-color-content-secondary);
+  font-style: italic;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-top: 2px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Collapsed state - minimize the visual footprint for fixed positioning */
+.chatbot-collapsed .chatbot-content {
+  display: none;
+}
+
+/* Special handling for fixed positioning when collapsed - make it look like a modern floating button */
+.chatbot-container.chatbot-collapsed {
+  width: auto !important; /* Override fixed width when in fixed position */
+  height: auto !important;
+  min-width: 60px; /* Larger size for better touch targets */
+  min-height: 60px;
+  max-width: 200px; /* Limit width when collapsed to show title */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.chatbot-container.chatbot-collapsed:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-container.chatbot-collapsed .chatbot-header {
+  border-radius: 50%; /* Make it perfectly circular when collapsed */
+  padding: 0.75rem;
+  min-height: 60px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--ifm-color-primary, #3578e5) 0%, var(--ifm-color-primary-dark, #2c69c4) 100%);
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Add a chat icon or robot icon when collapsed */
+.chatbot-container.chatbot-collapsed .chatbot-header::before {
+  content: "🤖"; /* Robot emoji as the icon */
+  font-size: 1.2rem;
+  display: block;
+}
+
+.chatbot-container.chatbot-collapsed .chatbot-title {
+  display: none; /* Hide title when collapsed to make it more compact */
+  margin-right: 0.5rem;
+}
+
+.chatbot-container.chatbot-collapsed .chatbot-toggle-button {
+  display: none; /* Hide toggle button when collapsed since the whole header is clickable */
+}
+
+/* Expanded state */
+.chatbot-container.chatbot-expanded {
+  min-width: 320px;
+  min-height: 400px;
+  max-width: 420px;
+  max-height: 650px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.chatbot-container.chatbot-expanded .chatbot-header {
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(135deg, var(--ifm-color-primary, #3578e5) 0%, var(--ifm-color-primary-dark, #2c69c4) 100%);
+  color: white;
+  padding: 0.875rem 1rem;
+}
+
+.chatbot-container.chatbot-expanded .chatbot-title {
+  color: white;
+}
+
+.chatbot-container.chatbot-expanded .chatbot-toggle-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.chatbot-container.chatbot-expanded .chatbot-toggle-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading state */
+.chatbot-loading {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chatbot-container {
+    margin: 0.5rem 0;
+    border-radius: 6px;
+  }
+
+  .chatbot-header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .chatbot-title {
+    font-size: 1rem;
+  }
+
+  .chatbot-content {
+    padding: 0.75rem;
+  }
+}

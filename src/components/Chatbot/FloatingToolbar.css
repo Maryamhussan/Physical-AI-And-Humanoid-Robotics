@@ -1,0 +1,108 @@
+/* Styles for Floating Toolbar component */
+
+.floating-toolbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--ifm-background-surface-color, #ffffff);
+  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.25rem;
+  min-height: 40px;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  font-family: var(--ifm-font-family-base);
+  box-sizing: border-box;
+}
+
+.floating-toolbar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--ifm-color-emphasis-700, #353738);
+  cursor: pointer;
+  margin: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+}
+
+.floating-toolbar-button:hover {
+  background-color: var(--ifm-color-emphasis-100, #f6f6f7);
+  color: var(--ifm-color-primary, #3578e5);
+}
+
+.floating-toolbar-button:focus {
+  outline: 2px solid var(--ifm-color-primary-lightest, #d3e0fa);
+  outline-offset: 1px;
+}
+
+.floating-toolbar-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Animation for showing/hiding */
+.floating-toolbar-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.floating-toolbar-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.floating-toolbar-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating-toolbar-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .floating-toolbar {
+    min-height: 36px;
+    border-radius: 6px;
+    padding: 0.125rem;
+  }
+
+  .floating-toolbar-button {
+    width: 30px;
+    height: 30px;
+    margin: 0.125rem;
+  }
+
+  .floating-toolbar-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .floating-toolbar {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .floating-toolbar {
+    transition: none;
+  }
+
+  .floating-toolbar-enter-active,
+  .floating-toolbar-exit-active {
+    transition: none;
+  }
+}
