@@ -12,7 +12,7 @@ class RetrievalConfiguration:
     """
     top_k: int = 5
     similarity_threshold: float = 0.3
-    query_model: str = "multilingual-22-12-embed"
+    query_model: str = "embed-english-v3.0"
     collection_name: str = "rag_embedding"
     timeout: float = 30.0  # seconds
 

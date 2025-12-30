@@ -20,10 +20,11 @@ const config = {
   trailingSlash: false, // Set to false to remove trailing slashes from URLs
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   markdown: {
     mermaid: true,
-    // Migrate the deprecated option to the new location
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
     mdx1Compat: {
       'comments': false,
       'admonitions': false,

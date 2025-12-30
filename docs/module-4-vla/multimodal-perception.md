@@ -28,11 +28,7 @@ Traditional robotics systems often treat perception as a unimodal problem (e.g.,
 3. **Adaptability**: Systems can adapt to different contexts and tasks
 4. **Natural Interaction**: Enables intuitive human-robot communication
 
-## Architecture for Multimodal Perception
 
-The following diagram illustrates the complete multimodal perception system architecture, showing how vision, language, and action modalities are integrated:
-
-![Multimodal Perception System](/img/multimodal-perception.svg)
 
 ### Fusion Strategies
 

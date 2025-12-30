@@ -143,31 +143,38 @@ const Chatbot = ({
       role="region"
       aria-label="Book Assistant Chat Interface"
     >
-      <div className="chatbot-content-wrapper">
+      <div
+        className="chatbot-content-wrapper"
+        role="feed"
+        aria-live="polite"
+        aria-label="Chat message history"
+      >
         {error && (
           <div className="chatbot-error-message" role="alert" aria-live="assertive">
             <div className="error-text">{error.message || 'An error occurred'}</div>
           </div>
         )}
 
-        <div className="chatbot-messages-container" aria-label="Chat message history">
+        <div className="chatbot-messages-container" role="list" aria-label="Chat message history">
           <ChatHistory
             messages={messages}
             showSources={true}
+            role="listitem"
           />
         </div>
 
-        <div className="chatbot-input-container" aria-label="Message input">
+        <div className="chatbot-input-container" role="form" aria-label="Message input form">
           <ChatInput
             onSendMessage={handleSendMessage}
             disabled={isLoading}
             placeholder="Ask a question about the book..."
+            aria-label="Type your question here"
           />
         </div>
 
         {isLoading && (
           <div className="chatbot-loading-state" role="status" aria-live="polite">
-            <div className="loading-indicator">Thinking...</div>
+            <div className="loading-indicator" aria-label="Processing your request">Thinking...</div>
           </div>
         )}
       </div>

@@ -1,8 +1,28 @@
-/* Styles for Docusaurus-specific Chatbot integration */
-
+/* Modern Styles for Docusaurus-specific Chatbot integration */
 .docusaurus-chatbot-container {
   position: relative;
   width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: var(--ifm-global-radius, 20px);
+  overflow: hidden;
+  box-shadow: var(--ifm-global-shadow-lw, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+/* Light theme specific styles */
+.docusaurus-chatbot-container.theme-light {
+  --chatbot-bg: var(--ifm-background-color);
+  --chatbot-text: var(--ifm-font-color-base);
+  --chatbot-border: var(--ifm-color-emphasis-300);
+}
+
+/* Dark theme specific styles */
+.docusaurus-chatbot-container.theme-dark {
+  --chatbot-bg: var(--ifm-background-color);
+  --chatbot-text: var(--ifm-font-color-base);
+  --chatbot-border: var(--ifm-color-emphasis-300);
 }
 
 .docusaurus-chatbot-content {
@@ -12,59 +32,86 @@
 /* Ensure proper spacing within Docusaurus layout */
 .theme-doc-markdown > .docusaurus-chatbot-container,
 .markdown > .docusaurus-chatbot-container {
-  margin: 1.5rem 0;
+  margin: 2rem auto;
 }
 
 /* Adjust for sidebar layout if needed */
 .docusaurus-chatbot-container .chatbot-container {
   margin: 0;
-  border: 1px solid var(--ifm-color-emphasis-300, #dfe1e5);
-  border-radius: var(--ifm-global-radius, 0.4rem);
-  box-shadow: var(--ifm-shadow-md, 0 1px 2px 0 rgba(0, 0, 0, 0.1));
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Responsive adjustments for different Docusaurus layouts */
 @media (min-width: 997px) {
   /* On larger screens, ensure it works well in the main content area */
   .docusaurus-chatbot-container {
-    max-width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
   }
 }
 
 /* Adjustments for mobile view */
 @media (max-width: 996px) {
+  .docusaurus-chatbot-container {
+    margin: 1.5rem auto;
+    border-radius: 16px;
+  }
+
   .docusaurus-chatbot-container .chatbot-container {
-    margin: 1rem 0;
+    margin: 0;
   }
 }
 
 /* Ensure accessibility - focus management */
 .docusaurus-chatbot-container :focus {
-  outline: 2px solid var(--ifm-color-primary, #3578e5);
+  outline: 2px solid #667eea;
   outline-offset: 2px;
 }
 
-/* Reduce motion support */
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .docusaurus-chatbot-container * {
+  .docusaurus-chatbot-container {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .docusaurus-chatbot-container {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .docusaurus-chatbot-container .chatbot-container {
-    border-width: 2px;
+    border: 2px solid ButtonText;
   }
 }
 
 /* Dark mode support - inherits from Docusaurus theme */
 html[data-theme='dark'] .docusaurus-chatbot-container {
-  /* Colors will be handled by CSS variables already defined */
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
 }
 
+html[data-theme='dark'] .docusaurus-chatbot-container .chatbot-main {
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .docusaurus-chatbot-container .chatbot-content-wrapper {
+  background: #c0c0c0 !important;
+  backdrop-filter: blur(10px);
+}
+
+html[data-theme='light'] .docusaurus-chatbot-container .chatbot-main {
+  background: transparent !important;
+}
+
+html[data-theme='light'] .docusaurus-chatbot-container .chatbot-content-wrapper {
+  background: #c0c0c0 !important;
+  backdrop-filter: blur(10px);
+}
 /* Print styles */
 @media print {
   .docusaurus-chatbot-container {

@@ -62,20 +62,18 @@ NVIDIA Isaac Sim is a comprehensive robotics simulation environment built on NVI
 
 ## Architecture and Components
 
-The following diagram illustrates the NVIDIA Isaac Sim architecture and its integration with the broader NVIDIA AI ecosystem:
+The NVIDIA Isaac Sim architecture consists of several key components that work together to provide a comprehensive robotics simulation environment:
 
-![Isaac Sim Architecture](/img/isaac-sim-architecture.svg)
+- **Omniverse Nucleus**: Central server for asset management and collaboration
+- **USD Stage**: Universal Scene Description for scene representation
+- **PhysX Engine**: Physics simulation engine
+- **Render Engine**: RTX-accelerated rendering
+- **ROS 2 Bridge**: Communication interface with ROS 2
+- **AI Training Framework**: Reinforcement learning and synthetic data tools
 
-### Core Architecture
+This architecture enables seamless integration with the broader NVIDIA AI ecosystem for robotics development and simulation.
 
-Isaac Sim consists of several key components:
 
-1. **Omniverse Nucleus**: Central server for asset management and collaboration
-2. **USD Stage**: Universal Scene Description for scene representation
-3. **PhysX Engine**: Physics simulation engine
-4. **Render Engine**: RTX-accelerated rendering
-5. **ROS 2 Bridge**: Communication interface with ROS 2
-6. **AI Training Framework**: Reinforcement learning and synthetic data tools
 
 ### USD (Universal Scene Description)
 

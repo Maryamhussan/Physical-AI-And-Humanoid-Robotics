@@ -1,5 +1,5 @@
 """
-FastAPI application for the RAG agent
+FastAPI application for the RAG agent with OpenRouter API
 """
 import uuid
 import time
@@ -15,14 +15,14 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from .models import ChatRequest, ChatResponse, RetrieveRequest, RetrieveResponse, HealthResponse, AgentRequest
-from .agent import RAGAgent
-from .config import AGENT_CONFIG
+# Import from the consolidated agent file
+from .agent import ChatRequest, ChatResponse, RetrieveRequest, RetrieveResponse, HealthResponse, AgentRequest, RAG_AGENT
 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 # Rate limiting implementation
 class RateLimiter:
@@ -51,12 +51,14 @@ class RateLimiter:
 # Initialize rate limiter
 RATE_LIMITER = RateLimiter(requests_per_minute=30)  # 30 requests per minute per IP
 
+
 # Create FastAPI app instance
 app = FastAPI(
     title="RAG Agent API",
-    description="API for the Retrieval-Augmented Generation agent that uses OpenAI and Qdrant-backed retrieval",
+    description="API for the Retrieval-Augmented Generation agent that uses OpenRouter API and Qdrant-backed retrieval",
     version="1.0.0"
 )
+
 
 # Add CORS middleware to allow requests from the frontend
 app.add_middleware(
@@ -67,6 +69,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Add middleware for rate limiting
 @app.middleware("http")
 async def rate_limit_middleware(request: Request, call_next):
@@ -76,14 +79,11 @@ async def rate_limit_middleware(request: Request, call_next):
     response = await call_next(request)
     return response
 
-# Initialize the RAG agent
-rag_agent = RAGAgent()
-
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(chat_request: ChatRequest):
     """
-    Implement /chat endpoint that accepts user queries and optional selected-text context
+    Chat endpoint that accepts user queries and optional selected-text context
     """
     try:
         # Generate a unique request ID if not provided
@@ -100,7 +100,7 @@ async def chat_endpoint(chat_request: ChatRequest):
 
         # Process the request with the RAG agent
         start_time = time.time()
-        agent_response = rag_agent.process_query(agent_request)
+        agent_response = RAG_AGENT.process_query(agent_request)
         processing_time = time.time() - start_time
 
         # Create and return the ChatResponse
@@ -122,13 +122,13 @@ async def chat_endpoint(chat_request: ChatRequest):
 @app.post("/retrieve", response_model=RetrieveResponse)
 async def retrieve_endpoint(retrieve_request: RetrieveRequest):
     """
-    Implement /retrieve endpoint for testing retrieval functionality
+    Retrieve endpoint for testing retrieval functionality
     """
     try:
         start_time = time.time()
 
-        # Use the retrieval tool directly
-        results = rag_agent.retrieval_tool.search(
+        # Use the retrieval tool from the global RAG agent
+        results = RAG_AGENT.retrieval_tool.search(
             retrieve_request.query,
             top_k=retrieve_request.top_k
         )
@@ -152,11 +152,10 @@ async def retrieve_endpoint(retrieve_request: RetrieveRequest):
 @app.get("/health", response_model=HealthResponse)
 async def health_endpoint():
     """
-    Implement /health endpoint for health checking
+    Health endpoint for health checking
     """
     try:
         # Perform basic health checks
-        # For now, just return a healthy status
         response = HealthResponse(
             status="healthy",
             timestamp=datetime.now()
@@ -170,19 +169,6 @@ async def health_endpoint():
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/docs")
-async def docs_endpoint():
-    """
-    Automatic API documentation endpoint (provided by FastAPI)
-    """
-    # This is automatically handled by FastAPI with Swagger UI
-    pass
-
-
-# Add request validation and response formatting
-# The Pydantic models in models.py already handle validation
-
-
 # Add proper error handling for API endpoints
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
@@ -191,6 +177,3 @@ async def global_exception_handler(request, exc):
     """
     logger.error(f"Global exception: {exc}")
     return {"error": "Internal server error", "message": str(exc)}
-
-
-# Create API integration tests would go in test_agent.py which we already created

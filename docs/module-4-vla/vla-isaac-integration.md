@@ -12,9 +12,16 @@ The Vision-Language-Action (VLA) pipeline represents the complete loop from natu
 
 ## Architecture Overview
 
-The following diagram illustrates the complete Vision-Language-Action (VLA) system architecture integrated with Isaac Sim:
+The Vision-Language-Action (VLA) system architecture integrated with Isaac Sim consists of several key components:
 
-![VLA System Architecture](/img/vla-system-overview.svg)
+- **Vision Module**: Processes visual input from cameras and sensors
+- **Language Module**: Interprets natural language commands and instructions
+- **Action Module**: Executes robotic actions based on planning decisions
+- **Isaac Sim Integration**: Provides simulation environment and physics
+- **ROS 2 Bridge**: Facilitates communication between modules
+- **Planning Layer**: Coordinates between perception and action
+
+This integrated architecture enables seamless development and testing of VLA systems in realistic simulation environments.
 
 ### VLA Pipeline Components
 

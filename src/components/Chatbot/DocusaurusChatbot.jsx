@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useColorMode } from '@docusaurus/theme-common';
 import Chatbot from './Chatbot';
 import { addSelectionListener } from './text-selection-utils';
 import { selectionHelper } from './text-selection-fallback';
@@ -12,6 +13,7 @@ const DocusaurusChatbot = ({
   initialExpanded = true,
   ...props
 }) => {
+  const { colorMode } = useColorMode();
   const [showToolbar, setShowToolbar] = useState(false);
   const [toolbarPosition, setToolbarPosition] = useState({ top: 0, left: 0 });
   const [selectedText, setSelectedText] = useState('');
@@ -51,6 +53,9 @@ const DocusaurusChatbot = ({
     };
   }, [showFloatingToolbar]);
 
+  // Update CSS classes based on color mode
+  const chatbotClassName = `docusaurus-chatbot-container theme-${colorMode}`;
+
   // Handle ask with selection
   const handleAskWithSelection = (text) => {
     if (text) {
@@ -66,7 +71,7 @@ const DocusaurusChatbot = ({
   };
 
   return (
-    <div className="docusaurus-chatbot-container">
+    <div className={chatbotClassName}>
       {showToolbar && (
         <FloatingToolbar
           isVisible={showToolbar}

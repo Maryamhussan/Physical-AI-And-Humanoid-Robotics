@@ -2,6 +2,9 @@
 
 // Get the currently selected text
 export const getSelectedText = () => {
+  if (typeof window === 'undefined') {
+    return '';
+  }
   const selection = window.getSelection && window.getSelection();
   if (selection && selection.toString().trim()) {
     return selection.toString().trim();
@@ -11,6 +14,10 @@ export const getSelectedText = () => {
 
 // Get detailed information about the current selection
 export const getSelectionInfo = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return null;
+  }
+
   const selection = window.getSelection ? window.getSelection() : document.selection;
 
   if (!selection || selection.toString().trim() === '') {
@@ -44,6 +51,9 @@ export const isTextSelected = () => {
 
 // Clear the current text selection
 export const clearSelection = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
   if (window.getSelection) {
     window.getSelection().removeAllRanges();
   } else if (document.selection) {
@@ -79,9 +89,11 @@ export const getFloatingToolbarPosition = (selectionRect) => {
   }
 
   // Adjust for viewport boundaries
-  const viewportWidth = window.innerWidth;
-  if (left > viewportWidth - 100) { // 100 is approx toolbar width
-    left = viewportWidth - 100;
+  if (typeof window !== 'undefined') {
+    const viewportWidth = window.innerWidth;
+    if (left > viewportWidth - 100) { // 100 is approx toolbar width
+      left = viewportWidth - 100;
+    }
   }
 
   return { top, left };
@@ -89,6 +101,11 @@ export const getFloatingToolbarPosition = (selectionRect) => {
 
 // Event listener for text selection changes
 export const addSelectionListener = (callback) => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    // Return a no-op function when running on the server
+    return () => {};
+  }
+
   const handler = () => {
     const selectionInfo = getSelectionInfo();
     if (selectionInfo && selectionInfo.text) {

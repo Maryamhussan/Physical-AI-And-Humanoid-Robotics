@@ -2,11 +2,17 @@
 
 // Check if text selection API is supported
 export const isTextSelectionSupported = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return false;
+  }
   return !!(window.getSelection && document.createRange);
 };
 
 // Alternative text selection method for older browsers
 export const getSelectedTextFallback = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return '';
+  }
   if (window.getSelection) {
     return window.getSelection().toString();
   } else if (document.selection && document.selection.type !== 'Control') {
@@ -17,11 +23,18 @@ export const getSelectedTextFallback = () => {
 
 // Check if we're in a mobile browser where selection might be limited
 export const isMobileBrowser = () => {
+  if (typeof navigator === 'undefined') {
+    return false;
+  }
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };
 
 // Enhanced selection detection with fallbacks
 export const getSelectedTextWithFallback = () => {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return '';
+  }
+
   // Try modern selection API first
   if (window.getSelection) {
     const selection = window.getSelection();
@@ -51,8 +64,14 @@ export const getSelectedTextWithFallback = () => {
 // Create a selection detection helper that works across browsers
 export class SelectionHelper {
   constructor() {
-    this.isSupported = isTextSelectionSupported();
-    this.isMobile = isMobileBrowser();
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      this.isSupported = isTextSelectionSupported();
+      this.isMobile = isMobileBrowser();
+    } else {
+      // Default values for server-side rendering
+      this.isSupported = false;
+      this.isMobile = false;
+    }
   }
 
   // Get selected text with all fallbacks
@@ -72,6 +91,10 @@ export class SelectionHelper {
 
   // Get selection information with fallbacks
   getSelectionInfo() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return null;
+    }
+
     const text = this.getSelectedText();
 
     if (!text) {
@@ -147,6 +170,21 @@ export class SelectionHelper {
 }
 
 // Export a singleton instance for consistent behavior
-export const selectionHelper = new SelectionHelper();
+let selectionHelper;
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  selectionHelper = new SelectionHelper();
+} else {
+  // Create a minimal object for server-side rendering
+  selectionHelper = {
+    isSupported: false,
+    isMobile: false,
+    getSelectedText: () => '',
+    isTextSelected: () => false,
+    getSelectionInfo: () => null,
+    shouldShowToolbar: () => false,
+    getAlternativeUI: () => null
+  };
+}
 
+export { selectionHelper };
 export default selectionHelper;

@@ -91,7 +91,15 @@ export const handleApiError = (error) => {
   if (error.message.includes('Failed to fetch')) {
     return {
       type: 'NETWORK_ERROR',
-      message: 'Network error. Please check your connection and backend service.',
+      message: 'Unable to connect to the knowledge base service. Please check if the backend service is running.',
+      originalError: error
+    };
+  }
+
+  if (error.message.includes('500') || error.message.includes('502') || error.message.includes('503')) {
+    return {
+      type: 'SERVICE_ERROR',
+      message: 'The knowledge base service is temporarily unavailable. Please try again later or check back for updates.',
       originalError: error
     };
   }
@@ -112,6 +120,8 @@ export const formatUserErrorMessage = (errorInfo) => {
       return 'There was an issue with the server. Please try again later.';
     case 'NETWORK_ERROR':
       return 'Unable to connect to the service. Please check your network connection.';
+    case 'SERVICE_ERROR':
+      return errorInfo.message; // Use the specific service error message
     case 'VALIDATION_ERROR':
       return `Validation error: ${errorInfo.message}`;
     default:

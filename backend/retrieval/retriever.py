@@ -14,7 +14,7 @@ from .clients import COHERE_CLIENT, QDRANT_CLIENT, check_qdrant_availability
 logger = logging.getLogger(__name__)
 
 
-def generate_query_embedding(query_text: str, model_name: str = "multilingual-22-12-embed") -> QueryEmbedding:
+def generate_query_embedding(query_text: str, model_name: str = "embed-english-v3.0") -> QueryEmbedding:
     """
     Implement query embedding generation function in backend/retrieval/retriever.py
     """
@@ -25,10 +25,12 @@ def generate_query_embedding(query_text: str, model_name: str = "multilingual-22
         response = COHERE_CLIENT.embed(
             texts=[query_text],
             model=model_name,
-            input_type="search_query"
+            input_type="search_query",
+            embedding_types=["float"]
         )
 
-        embedding_vector = response.embeddings[0]
+        # Handle the new response format for embed-english-v3.0
+        embedding_vector = response.embeddings.float_[0]
 
         # Create and return QueryEmbedding object
         query_embedding = QueryEmbedding(
@@ -50,12 +52,12 @@ def generate_query_embedding(query_text: str, model_name: str = "multilingual-22
         raise
 
 
-def validate_768_dimensional_vectors(query_embedding: QueryEmbedding) -> bool:
+def validate_1024_dimensional_vectors(query_embedding: QueryEmbedding) -> bool:
     """
-    Add validation to ensure 768-dimensional vectors are generated consistently
+    Add validation to ensure 1024-dimensional vectors are generated consistently
     """
-    if len(query_embedding.vector) != 768:
-        logger.error(f"Invalid vector dimension: expected 768, got {len(query_embedding.vector)}")
+    if len(query_embedding.vector) != 1024:
+        logger.error(f"Invalid vector dimension: expected 1024, got {len(query_embedding.vector)}")
         return False
     return True
 
@@ -103,20 +105,20 @@ class Retriever:
             query_embedding = generate_query_embedding(query, self.config.query_model)
 
             # Validate the embedding
-            if not validate_768_dimensional_vectors(query_embedding):
+            if not validate_1024_dimensional_vectors(query_embedding):
                 raise ValueError("Invalid embedding dimensions")
 
             # Handle queries with no matching content in Qdrant with appropriate response
             try:
                 # Perform similarity search against Qdrant collection with cosine metric
                 # Implement similarity search against Qdrant collection with cosine metric
-                search_results = QDRANT_CLIENT.search(
+                search_results = QDRANT_CLIENT.query_points(
                     collection_name=self.config.collection_name,
-                    query_vector=query_embedding.vector,
+                    query=query_embedding.vector,
                     limit=self.config.top_k,
                     with_payload=True,
                     with_vectors=False
-                )
+                ).points
             except Exception as e:
                 # Add Qdrant database availability checks and graceful degradation
                 logger.error(f"Error searching Qdrant for query '{query}': {e}")

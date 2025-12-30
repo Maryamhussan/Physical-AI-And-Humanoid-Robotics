@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import './ChatHistory.css';
 
@@ -8,6 +8,15 @@ const ChatHistory = ({
   showSources = true,
   ...props
 }) => {
+  const messagesEndRef = useRef(null);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
   // Function to render a single message
   const renderMessage = (message, index) => {
     const isUser = message.role === 'user';
@@ -68,6 +77,7 @@ const ChatHistory = ({
       ) : (
         <div className="chat-history-messages" aria-label="Message history">
           {messages.map((message, index) => renderMessage(message, index))}
+          <div ref={messagesEndRef} />
         </div>
       )}
     </div>

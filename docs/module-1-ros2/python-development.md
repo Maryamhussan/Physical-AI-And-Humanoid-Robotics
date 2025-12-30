@@ -55,9 +55,7 @@ my_robot_pkg/
 
 ## Basic ROS 2 Python Concepts
 
-The following diagram illustrates the ROS 2 communication architecture with nodes, topics, services, and actions:
-
-![ROS 2 Architecture](/img/ros2-communication-patterns.svg)
+The following diagram illustrates the ROS 2 communication architecture with nodes, topics, services, and actions.
 
 ### Creating Your First Publisher Node
 

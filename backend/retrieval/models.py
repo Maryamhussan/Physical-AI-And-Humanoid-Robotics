@@ -13,12 +13,12 @@ class QueryEmbedding:
     """
     vector: List[float]
     query_text: str
-    model_name: str = "multilingual-22-12-embed"
+    model_name: str = "embed-english-v3.0"
 
     def __post_init__(self):
         """Validate the query embedding"""
-        if len(self.vector) != 768:
-            raise ValueError(f"Vector must have 768 dimensions, got {len(self.vector)}")
+        if len(self.vector) != 1024:
+            raise ValueError(f"Vector must have 1024 dimensions, got {len(self.vector)}")
         if not self.query_text.strip():
             raise ValueError("Query text must not be empty")
         if not all(isinstance(v, (int, float)) and not (v != v) for v in self.vector):  # Check for finite numbers
