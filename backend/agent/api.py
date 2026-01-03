@@ -106,7 +106,7 @@ async def chat_endpoint(chat_request: ChatRequest):
         # Create and return the ChatResponse
         response = ChatResponse(
             response=agent_response.response,
-            sources=agent_response.sources,
+            # sources=agent_response.sources,
             session_id=chat_request.session_id or str(uuid.uuid4()),
             request_id=agent_request.request_id
         )

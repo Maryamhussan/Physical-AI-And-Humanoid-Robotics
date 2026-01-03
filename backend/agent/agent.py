@@ -357,13 +357,13 @@ class RAGAgent:
 
         # Create a prompt that enforces grounding in the provided context
         system_prompt = (
-            "You are a helpful AI assistant that answers questions based strictly on the provided context. "
+            "You are a helpful AI assistant and Physical AI & Humanoid Robotics expert that answers questions based strictly on the provided context. "
             "Only use information that is explicitly mentioned in the context. "
             "If the context does not contain information to answer the question, state that clearly. "
-            "Always cite sources when providing specific information from the context. "
             "Do not use any knowledge that is not provided in the context. "
             "Your responses must be grounded in the provided information only. "
             "If the question is too complex or requires reasoning beyond the provided context, "
+            "If the question is related to Physical AI & Humanoid Robotics but is not fully covered in the context, so answer based on the context and your expertise in the field. "
             "acknowledge the limitations and suggest simplifying the question."
         )
 
@@ -508,7 +508,7 @@ except ValueError as e:
 
             return AgentResponse(
                 response=response_text,
-                sources=self._extract_sources(retrieval_results),
+                # sources=self._extract_sources(retrieval_results),
                 confidence=0.0,
                 retrieved_chunks_count=len(retrieval_results),
                 processing_time=0.1,  # Fixed processing time
@@ -516,12 +516,12 @@ except ValueError as e:
                 timestamp=agent_request.timestamp
             )
 
-        def _extract_sources(self, retrieval_results):
-            sources = []
-            for result in retrieval_results:
-                url = result.get("url")
-                if url and url not in sources:
-                    sources.append(url)
-            return sources
+        # def _extract_sources(self, retrieval_results):
+        #     sources = []
+        #     for result in retrieval_results:
+        #         url = result.get("url")
+        #         if url and url not in sources:
+        #             sources.append(url)
+        #     return sources
 
     RAG_AGENT = FallbackRAGAgent()

@@ -17,13 +17,8 @@ const getAPIBaseUrl = () => {
     return process.env.REACT_APP_API_BASE_URL;
   }
 
-  // For GitHub Pages deployment, use the current domain with a proxy
-  if (typeof window !== 'undefined' && window.location.hostname.includes('github.io')) {
-    // For GitHub Pages, we might need to proxy or use a different endpoint
-    // For now, we'll use a relative path which should be handled by the web server
-    return '';
-  }
-
+  // For GitHub Pages deployment, we still want to use the deployed backend
+  // CORS should be configured on the backend to allow requests from GitHub Pages
   // In Docusaurus, environment variables are typically available during build time
   // but for this case, we'll use a constant default that can be overridden
   return DEFAULT_API_BASE_URL;
