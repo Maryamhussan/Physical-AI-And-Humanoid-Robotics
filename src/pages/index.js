@@ -93,15 +93,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Chatbot Section */}
-        <section className={styles.chatbotSection} style={{ padding: '2rem 0', marginTop: '2rem', borderTop: '1px solid var(--ifm-color-emphasis-300)' }}>
-          <div className="container">
-            <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>AI Assistant</h2>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-              <DocusaurusChatbot />
-            </div>
-          </div>
-        </section>
+        
       </main>
     </Layout>
   );
