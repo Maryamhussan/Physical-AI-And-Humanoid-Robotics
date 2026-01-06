@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import DocusaurusChatbot from '@site/src/components/Chatbot';
 
 import styles from './index.module.css';
 
@@ -88,6 +89,16 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Chatbot Section */}
+        <section className={styles.chatbotSection} style={{ padding: '2rem 0', marginTop: '2rem', borderTop: '1px solid var(--ifm-color-emphasis-300)' }}>
+          <div className="container">
+            <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>AI Assistant</h2>
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <DocusaurusChatbot />
             </div>
           </div>
         </section>

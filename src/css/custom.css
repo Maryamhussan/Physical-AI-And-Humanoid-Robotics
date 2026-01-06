@@ -78,3 +78,15 @@
 .admonition-robotics-caution {
   border-left-color: #e74c3c;
 }
+/* Custom logo size */
+/* Custom logo size with proper alignment */
+.navbar__logo {
+ display: flex;
+ align-items: center;
+ /* margin-right: 1.5rem; */
+}
+.navbar__logo img {
+  height: 60px; /* Increased size */
+  width: 60px;
+  max-width: none;
+  }

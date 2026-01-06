@@ -7,7 +7,7 @@ const sidebars = {
       type: "category",
       label: "Introduction",
       items: ["intro"],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",
@@ -44,7 +44,7 @@ const sidebars = {
           label: "Chapter 6: Mini Project",
         },
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",
@@ -81,7 +81,7 @@ const sidebars = {
           label: "Chapter 6: Digital Twin Project",
         },
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",
@@ -118,7 +118,7 @@ const sidebars = {
           label: "Chapter 6: Jetson Deployment",
         },
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",
@@ -180,7 +180,7 @@ const sidebars = {
           label: "Chapter 11: Summary",
         },
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",
@@ -190,7 +190,7 @@ const sidebars = {
         "capstone-project/implementation",
         "capstone-project/demo-instructions",
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: "category",

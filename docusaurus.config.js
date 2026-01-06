@@ -4,13 +4,17 @@
 const config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'A Comprehensive Educational Book on Robotics, AI, and Physical Intelligence',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
-  url: 'https://Maryamhussan.github.io', // GitHub Pages URL
+  url: process.env.DEPLOYMENT_TARGET === 'vercel'
+    ? 'https://physical-ai-humanoid-robotics.vercel.app'
+    : 'https://Maryamhussan.github.io', // GitHub Pages URL
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Physical-AI-And-Humanoid-Robotics/',
+  baseUrl: process.env.DEPLOYMENT_TARGET === 'vercel'
+    ? '/'
+    : '/Physical-AI-And-Humanoid-Robotics/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -64,12 +68,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg', // TODO: Add actual social card
+      image: 'img/docusaurus-social-card.png', // TODO: Add actual social card
       navbar: {
         title: 'Physical AI & Humanoid Robotics',
         logo: {
           alt: 'Physical AI & Humanoid Robotics Logo',
-          src: 'img/logo.svg', // TODO: Add actual logo
+          src: 'img/logo.png', // TODO: Add actual logo
         },
         items: [
           {
