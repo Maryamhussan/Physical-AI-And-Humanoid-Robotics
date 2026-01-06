@@ -5,7 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "cross-env DEPLOYMENT_TARGET=vercel docusaurus build",
+    "build": "docusaurus build",
+    "build:vercel": "cross-env DEPLOYMENT_TARGET=vercel docusaurus build",
+    "build:github": "cross-env DEPLOYMENT_TARGET=github_pages docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

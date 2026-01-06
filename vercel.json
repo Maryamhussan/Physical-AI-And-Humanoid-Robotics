@@ -18,6 +18,6 @@
       "destination": "/index.html"
     }
   ],
-  "buildCommand": "DEPLOYMENT_TARGET=vercel npm run build",
+  "buildCommand": "npm run build:vercel",
   "outputDirectory": "build"
 }
