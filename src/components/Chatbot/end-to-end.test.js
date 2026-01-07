@@ -13,8 +13,8 @@ describe('End-to-End Tests: All User Stories', () => {
   const mockApiResponse = {
     response: 'This is a test response from the RAG agent.',
     sources: [
-      'https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics/docs/example',
-      'https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics/docs/another-example'
+      'https://physical-ai-humanoid-robotics.vercel.app/docs/example',
+      'https://physical-ai-humanoid-robotics.vercel.app/docs/another-example'
     ],
     session_id: 'test-session-123',
     request_id: 'test-request-456'
@@ -51,7 +51,7 @@ describe('End-to-End Tests: All User Stories', () => {
 
       // Verify sources are displayed
       expect(screen.getByText('Sources:')).toBeInTheDocument();
-      expect(screen.getByText('https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics/docs/example')).toBeInTheDocument();
+      expect(screen.getByText('https://physical-ai-humanoid-robotics.vercel.app/docs/example')).toBeInTheDocument();
     });
 
     test('response is clearly formatted and distinguishable from user input', async () => {

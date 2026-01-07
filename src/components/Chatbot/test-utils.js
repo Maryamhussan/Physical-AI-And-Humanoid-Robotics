@@ -7,8 +7,8 @@ import '@testing-library/jest-dom';
 export const mockApiResponse = {
   response: 'This is a sample response from the RAG agent.',
   sources: [
-    'https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics/docs/example',
-    'https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics/docs/another-example'
+    'https://physical-ai-humanoid-robotics.vercel.app/docs/example',
+    'https://physical-ai-humanoid-robotics.vercel.app/docs/another-example'
   ],
   session_id: 'test-session-123',
   request_id: 'test-request-456'

@@ -37,23 +37,7 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-This website supports deployment to both GitHub Pages and Vercel.
-
-### GitHub Pages Deployment
-
-The website is automatically deployed to GitHub Pages when changes are pushed to the `main` or `001-vla-systems` branches. The deployment is handled by the GitHub Actions workflow in `.github/workflows/deploy.yml`.
-
-The site will be available at: https://Physical-AI-And-Humanoid-Robotics.github.io/physical-ai-humanoid-robotics-book/
-
-To deploy manually to GitHub Pages:
-
-```bash
-GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
-```
-
-### Vercel Deployment
-
-The project is also configured for deployment to Vercel with optimized settings:
+This website is configured for deployment to Vercel with optimized settings:
 
 1. Install the Vercel CLI:
 ```bash
@@ -73,10 +57,9 @@ vercel --prod
 Or simply link your GitHub repository to Vercel for automatic deployments on push.
 
 The project includes:
-- Conditional base URL configuration based on deployment target
 - Optimized build settings for Vercel
 - Proper routing and rewrite rules
-- Environment-specific configurations
+- Environment-specific configurations for Vercel deployment
 
 The Vercel deployment will be available at: https://physical-ai-humanoid-robotics.vercel.app/
 

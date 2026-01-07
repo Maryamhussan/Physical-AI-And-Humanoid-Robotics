@@ -1,10 +1,10 @@
 # Web Content Ingestion and Vector Embedding Pipeline
 
-This backend service implements a complete pipeline to crawl, extract, embed, and store content from a Docusaurus-based GitHub Pages site for use in a RAG (Retrieval-Augmented Generation) chatbot.
+This backend service implements a complete pipeline to crawl, extract, embed, and store content from a Docusaurus-based Vercel-deployed site for use in a RAG (Retrieval-Augmented Generation) chatbot.
 
 ## Features
 
-- **URL Discovery**: Crawls all accessible pages from a GitHub Pages site
+- **URL Discovery**: Crawls all accessible pages from a Vercel-deployed site
 - **Content Extraction**: Extracts clean text content from HTML pages
 - **Text Chunking**: Splits content into semantically meaningful chunks
 - **Embedding Generation**: Creates vector embeddings using Cohere API
@@ -56,7 +56,7 @@ The system can be configured via environment variables:
 - `COHERE_API_KEY`: Your Cohere API key
 - `QDRANT_URL`: URL of your Qdrant instance
 - `QDRANT_API_KEY`: API key for Qdrant (if required)
-- `SOURCE_URL`: Base URL of the GitHub Pages site to crawl (default: https://maryamhussan.github.io/Physical-AI-And-Humanoid-Robotics)
+- `SOURCE_URL`: Base URL of the Vercel-deployed site to crawl (default: https://physical-ai-humanoid-robotics.vercel.app)
 - `CHUNK_SIZE`: Size of text chunks in characters (default: 512)
 - `CHUNK_OVERLAP`: Overlap between chunks in characters (default: 128)
 - `COHERE_MODEL`: Cohere model name to use (default: multilingual-22-12-embed)

@@ -6,21 +6,8 @@ const config = {
   tagline: 'A Comprehensive Educational Book on Robotics, AI, and Physical Intelligence',
   favicon: 'img/favicon.png',
 
-  // Set the production url of your site here
-  url: process.env.DEPLOYMENT_TARGET === 'vercel'
-    ? 'https://physical-ai-humanoid-robotics.vercel.app'
-    : 'https://Maryamhussan.github.io', // GitHub Pages URL
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.DEPLOYMENT_TARGET === 'vercel'
-    ? '/'
-    : '/Physical-AI-And-Humanoid-Robotics/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Maryamhussan', // Usually your GitHub org/user name.
-  projectName: 'Physical-AI-And-Humanoid-Robotics', // Usually your repo name.
-  deploymentBranch: 'gh-pages', // Branch that GitHub Pages will deploy from
+  url: 'https://physical-ai-humanoid-robotics.vercel.app',
+  baseUrl: '/',
   trailingSlash: false, // Set to false to remove trailing slashes from URLs
 
   onBrokenLinks: 'throw',
